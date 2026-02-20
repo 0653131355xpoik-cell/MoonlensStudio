@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonlens Studio</title>
+    <meta name="description" content="Moonlens Studio – One-Stop Studio for Your Creative Vision. บริการครบวงจรทั้งสถานที่ ทีมงาน และอุปกรณ์คุณภาพสูง เพื่อผลงานโฆษณาและคอนเทนต์ระดับโปรดักชัน">
+    <meta name="theme-color" content="#FFD400">
+    <style>
+        :root{--bg:#ffffff;--text:#111111;--muted:#6b7280;--accent:#FFD400;--surface:#f5f5f5;--border:#e5e7eb;--dark:#0a0a0a;--nav-h:128px}
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        html{scroll-behavior:smooth}
+        body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans Thai,Arial,sans-serif;line-height:1.6;padding-top:var(--nav-h)}
+        .container{max-width:1120px;margin:0 auto;padding:0 24px}
+        .narrow{max-width:820px}
+        a{text-decoration:none;color:inherit}
+        img{display:block;max-width:100%;height:auto}
+        .nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:40;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border)}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h)}
+        .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;letter-spacing:.4px}
+        .brand .logo{height:128px;width:auto;border-radius:8px}
+        .nav-inner nav{display:flex;gap:16px}
+        .nav-inner nav a{padding:8px 10px;border-radius:10px;color:#1f2937}
+        .nav-inner nav a:hover{background:var(--surface)}
+        .hero{position:relative;min-height:86vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#ffffff}
+        .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+        .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.35))}
+        .hero-content{position:relative;z-index:1;padding:48px 24px;text-align:center}
+        .hero h1{margin:0 0 12px;font-size:40px;line-height:1.15}
+        .hero p{margin:0 auto 24px;max-width:860px;font-size:18px;color:#e5e7eb}
+        .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+        .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:600;transition:.2s;border:1px solid transparent}
+        .btn-accent{background:var(--accent);color:#111111}
+        .btn-accent:hover{filter:brightness(1.05)}
+        .btn-outline{background:transparent;color:#ffffff;border-color:rgba(255,255,255,.6)}
+        .btn-outline:hover{background:rgba(255,255,255,.1)}
+        .section{padding:72px 0;scroll-margin-top:calc(var(--nav-h) + 12px)}
+        .section.alt{background:var(--surface)}
+        .section h2{margin:0 0 24px;font-size:28px}
+        .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+        .card{background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
+        .card h3{margin:0;font-size:18px}
+        .card p{margin:0;color:var(--muted)}
+        .pricing{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+        .price-card{background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:20px;display:grid;gap:6px}
+        .price-card h3{margin:0;font-size:18px}
+        .price-range{font-weight:700;font-size:18px}
+        .price-note{color:var(--muted);font-size:14px}
+        .features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+        .feature{background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:20px}
+        .feature h3{margin:0 0 6px;font-size:18px}
+        .feature p{margin:0;color:var(--muted)}
+        .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+        .gallery img{border-radius:14px;border:1px solid var(--border);aspect-ratio:4/3;object-fit:cover}
+        .wa-row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px, 1fr);gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+        .wa-row img{width:100%;height:180px;object-fit:cover;border:1px solid var(--border);border-radius:14px;scroll-snap-align:start}
+        .equip-banners{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);gap:12px;margin:8px 0 20px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+        .equip-banners img{width:100%;height:220px;object-fit:contain;background:#fff;border-radius:14px;border:1px solid var(--border);scroll-snap-align:start}
+        .equip-header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+        .equip-tabs{display:flex;gap:8px;flex-wrap:wrap}
+        .tab{padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;cursor:pointer}
+        .tab.active{border-color:#111;background:#111;color:#fff}
+        .equip-mode{display:flex;gap:12px;align-items:center}
+        .equip-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+        .equip-card{background:#ffffff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+        .equip-card img{width:100%;height:160px;object-fit:cover;border-bottom:1px solid var(--border)}
+        .equip-body{padding:14px;display:grid;gap:6px}
+        .equip-name{font-weight:600}
+        .equip-meta{font-size:14px;color:#6b7280}
+        .equip-row{display:flex;justify-content:space-between;align-items:center}
+        .price{font-weight:700}
+        .stock.ok{color:#16a34a}
+        .stock.empty{color:#dc2626}
+        .badge{display:inline-block;background:#111;color:#fff;border-radius:999px;padding:4px 8px;font-size:12px}
+        .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:1000}
+        .lightbox.open{display:flex}
+        .lightbox img{max-width:92vw;max-height:86vh;border-radius:14px;border:1px solid #222;background:#000}
+        .lightbox .btn-nav,.lightbox .close{position:absolute;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.1);color:#ffffff;border:1px solid rgba(255,255,255,.2);cursor:pointer}
+        .lightbox .prev{left:24px;top:50%;transform:translateY(-50%)}
+        .lightbox .next{right:24px;top:50%;transform:translateY(-50%)}
+        .lightbox .close{right:16px;top:16px}
+        .lightbox .caption{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#e5e7eb;font-size:14px;max-width:80vw;text-align:center}
+        img.clickable{cursor:zoom-in}
+        @media (max-width:960px){.equip-grid{grid-template-columns:repeat(2,1fr)}}
+        @media (max-width:600px){.equip-grid{grid-template-columns:1fr}.equip-banners{grid-auto-columns:85vw}.pricing{grid-template-columns:1fr}}
+        .booking .step{border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;background:#ffffff}
+        .booking h3{margin:0 0 12px;font-size:18px}
+        .row{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+        .row.two>div{flex:1;min-width:240px}
+        label{font-size:14px;color:#374151}
+        input,textarea,select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:#ffffff;color:var(--text);font:inherit}
+        input[type="radio"],input[type="checkbox"]{width:auto}
+        .options{display:flex;gap:16px;flex-wrap:wrap}
+        .options.check label{display:flex;gap:8px;align-items:center}
+        .footer{background:#111111;color:#e5e7eb;padding:36px 0;border-top:1px solid #222}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:24px}
+        .slogan{color:#9ca3af}
+        .location{margin-top:8px;color:#9ca3af}
+        .links{display:grid;gap:8px}
+        .links a{color:#e5e7eb}
+        .links a:hover{color:var(--accent)}
+        .copyright{margin-top:16px;border-top:1px solid #222;padding-top:16px;text-align:center;color:#9ca3af}
+        @media (max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}}
+        @media (max-width:600px){:root{--nav-h:72px}.brand .logo{height:44px}.cards{grid-template-columns:1fr}.features{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.equip-banners{grid-template-columns:1fr}.hero h1{font-size:32px}}
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="#"><img class="logo" src="assets/images/logo1.png" alt="Moonlens Studio"><span>Moonlens Studio</span></a>
+            <nav>
+                <a href="#services">บริการของเรา</a>
+                <a href="#equipment">อุปกรณ์ให้เช่า</a>
+                <a href="#why">ทำไมต้องเลือกเรา</a>
+                <a href="#portfolio">ผลงาน</a>
+                <a href="#about">About</a>
+                <a href="#booking">จองคิว</a>
+                <a href="#contact">ติดต่อ</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/images/Photography studio.jpg">
+            <source src="https://cdn.coverr.co/videos/coverr-cameraman-shooting-4952/1080p.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Moonlens Studio – One-Stop Studio for Your Creative Vision</h1>
+            <p>บริการครบวงจรทั้งสถานที่ ทีมงาน และอุปกรณ์คุณภาพสูง เพื่อผลงานโฆษณาและคอนเทนต์ระดับโปรดักชัน</p>
+            <div class="cta">
+                <a class="btn btn-accent" href="#booking">จองสตูดิโอ</a>
+                <a class="btn btn-outline" href="mailto:moonlaneza@gmail.com?subject=สอบถามราคา Moonlens Studio">สอบถามราคา</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2>บริการของเรา (Our Services)</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Studio Rental</h3>
+                    <p>บริการเช่าสตูดิโอถ่ายภาพและวิดีโอรายชั่วโมง/รายวัน</p>
+                </div>
+                <div class="card">
+                    <h3>Commercial Production</h3>
+                    <p>รับผลิตงานโฆษณา คอนเทนต์ออนไลน์ และแฟชั่น</p>
+                </div>
+                <div class="card">
+                    <h3>Professional Crew</h3>
+                    <p>บริการช่างภาพ ช่างไฟ ผู้กำกับ และทีมอาร์ตมืออาชีพ</p>
+                </div>
+                <div class="card">
+                    <h3>Equipment & Casting</h3>
+                    <p>บริการอุปกรณ์ครบชุด พร้อมจัดหา Model/Influencer</p>
+                </div>
+            </div>
+            <h2 style="margin-top:24px">ราคาเช่าสตูดิโอ (รวมไฟพื้นฐาน)</h2>
+            <div class="pricing">
+                <div class="price-card">
+                    <h3>ครึ่งคิว (4 ชั่วโมง)</h3>
+                    <div class="price-range">5,000–8,000 บาท</div>
+                    <div class="price-note">ค่าเช่าสตูดิโอเปล่า รวมไฟพื้นฐาน</div>
+                </div>
+                <div class="price-card">
+                    <h3>เต็มคิว (9 ชั่วโมง)</h3>
+                    <div class="price-range">10,000–18,000 บาท</div>
+                    <div class="price-note">ค่าเช่าสตูดิโอเปล่า รวมไฟพื้นฐาน</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work-atmosphere" class="section alt">
+        <div class="container">
+            <h2>บรรยากาศการทำงาน (Work Atmosphere)</h2>
+            <div class="wa-row">
+                <img src="assets/images/work atmosphere/04168cc8-69ed-4200-b2a8-4e84e8feb5d1.jpg" alt="Work Atmosphere 1" loading="lazy">
+                <img src="assets/images/work atmosphere/0aa025fd-136f-4dfc-9eec-3ec873a16d30.jpg" alt="Work Atmosphere 2" loading="lazy">
+                <img src="assets/images/work atmosphere/14a63f41-7ac4-41ba-b5ec-0fce78fa8d66.jpg" alt="Work Atmosphere 3" loading="lazy">
+                <img src="assets/images/work atmosphere/152aac2d-1bc3-4702-a003-3d2cfd5c2b54.jpg" alt="Work Atmosphere 4" loading="lazy">
+                <img src="assets/images/work atmosphere/1f3dfd8a-1925-4234-a67b-fab1c90ef452.jpg" alt="Work Atmosphere 5" loading="lazy">
+                <img src="assets/images/work atmosphere/28b1f4a9-0892-45e3-9a9f-1e6838fdd1d0.jpg" alt="Work Atmosphere 6" loading="lazy">
+                <img src="assets/images/work atmosphere/493003cf-9db5-4384-8200-cc7b07f6ecd0.jpg" alt="Work Atmosphere 7" loading="lazy">
+                <img src="assets/images/work atmosphere/4ad5202f-3ada-4171-ba2f-1a15007f75f5.jpg" alt="Work Atmosphere 8" loading="lazy">
+                <img src="assets/images/work atmosphere/4f1ad46b-0dfd-480d-b20d-8c3d3fdc8666.jpg" alt="Work Atmosphere 9" loading="lazy">
+                <img src="assets/images/work atmosphere/58b58754-3041-4ced-8324-1d1f0d5ee9bf.jpg" alt="Work Atmosphere 10" loading="lazy">
+                <img src="assets/images/work atmosphere/6108e2f4-ff93-4830-bcda-23c325b21a37.jpg" alt="Work Atmosphere 11" loading="lazy">
+                <img src="assets/images/work atmosphere/71edc300-9f41-4abd-a0ac-18ed81505cf0.jpg" alt="Work Atmosphere 12" loading="lazy">
+                <img src="assets/images/work atmosphere/7a46edf3-6470-4bbd-9fd0-98df3e240f0c.jpg" alt="Work Atmosphere 13" loading="lazy">
+                <img src="assets/images/work atmosphere/83ac4c69-8018-4bd9-a082-1e47ef989863.jpg" alt="Work Atmosphere 14" loading="lazy">
+                <img src="assets/images/work atmosphere/84755e51-ffeb-45ae-8f4f-cfb97de3e4f8.jpg" alt="Work Atmosphere 15" loading="lazy">
+                <img src="assets/images/work atmosphere/a17eda3f-282d-4636-a841-14daee9a3c38.jpg" alt="Work Atmosphere 16" loading="lazy">
+                <img src="assets/images/work atmosphere/d1b9496e-224b-46fa-a6fe-2a854391286e.jpg" alt="Work Atmosphere 17" loading="lazy">
+                <img src="assets/images/work atmosphere/d8f845ce-a430-4ba1-b252-8db3d7f5d593.jpg" alt="Work Atmosphere 18" loading="lazy">
+                <img src="assets/images/work atmosphere/e87099c1-3eca-4fd9-a4a9-990abc46c748.jpg" alt="Work Atmosphere 19" loading="lazy">
+                <img src="assets/images/work atmosphere/f4077c9b-44f0-4708-a3a6-ad77176aa8dd.jpg" alt="Work Atmosphere 20" loading="lazy">
+                <img src="assets/images/work atmosphere/f8124fb5-30e5-4361-86d1-4e43664121f1.jpg" alt="Work Atmosphere 21" loading="lazy">
+                <img src="assets/images/work atmosphere/fa394c66-139d-4d1c-a4ad-4e5687034df7.jpg" alt="Work Atmosphere 22" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="section alt">
+        <div class="container">
+            <h2>อุปกรณ์ให้เช่า (Equipment Catalog)</h2>
+            <div class="equip-banners">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_Moonlane Studio_001.png" alt="บริการเช่าอุปกรณ์ - Tripods & Stands" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_Moonlane Studio_002.png" alt="บริการเช่าอุปกรณ์ - Lenses" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_Moonlane Studio_003.png" alt="บริการเช่าอุปกรณ์ - Cameras" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_Moonlane Studio_004.png" alt="บริการเช่าอุปกรณ์ - Softboxes" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_Moonlane Studio_005.png" alt="บริการเช่าอุปกรณ์ - Lighting" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_Moonlane Studio_006.png" alt="บริการเช่าอุปกรณ์ - รวมรายการ" loading="lazy">
+            </div>
+            <div class="equip-header">
+                <div class="equip-tabs" id="equip-tabs"></div>
+                <div class="equip-mode">
+                    <label><input type="radio" name="equip-mode" value="item" checked> เช่ารายชิ้น</label>
+                    <label><input type="radio" name="equip-mode" value="studio"> ใช้กับสตูดิโอ</label>
+                </div>
+            </div>
+            <div class="equip-grid" id="equip-grid"></div>
+        </div>
+    </section>
+
+    <section id="why" class="section alt">
+        <div class="container">
+            <h2>ทำไมต้องเลือกเรา? (Why Choose Us)</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Everything in One Place</h3>
+                    <p>ลดขั้นตอนการทำงานที่ซับซ้อน</p>
+                </div>
+                <div class="feature">
+                    <h3>Cost & Time Effective</h3>
+                    <p>ประหยัดเวลาและต้นทุนในการประสานงานหลายที่</p>
+                </div>
+                <div class="feature">
+                    <h3>Professional Quality</h3>
+                    <p>งานมีมาตรฐาน เชื่อถือได้ด้วยสัญญาจ้างที่ชัดเจน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2>แกลเลอรีผลงาน (Portfolio)</h2>
+            <div class="gallery">
+                <img src="assets/images/Photography studio.jpg" alt="Photography Studio">
+                <img src="assets/images/_MG_0101workings.jpg" alt="Workings 0101">
+                <img src="assets/images/workings.png" alt="Studio Workings">
+                <img src="assets/images/งานกลุ่มสอบอ.ฟิล์ม FNworkings.png" alt="งานกลุ่มสอบ FN">
+                <img src="assets/images/Filming equipment/Sony a7iv.png" alt="Sony a7 IV">
+                <img src="assets/images/Filming equipment/Panasonic s5ii.png" alt="Panasonic S5 II">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section alt">
+        <div class="container narrow">
+            <h2>About Us</h2>
+            <p>Your Vision, Our Production.</p>
+            <p>ที่ Moonlens Studio เราเชื่อว่างานสร้างสรรค์คุณภาพสูงไม่ควรเป็นเรื่องยุ่งยาก เราจึงก่อตั้งสตูดิโอถ่ายภาพและโปรดักชันโฆษณาแบบครบวงจร (One-Stop Studio) ขึ้นมาเพื่อรองรับทุกความต้องการในที่เดียว</p>
+            <p>ไม่ว่าจะเป็นงานถ่ายภาพนิ่ง วิดีโอโฆษณา หรือคอนเทนต์ดิจิทัลสำหรับแบรนด์และเอเจนซี่ เราพร้อมซัพพอร์ตคุณด้วยทีมงานมืออาชีพและอุปกรณ์มาตรฐานระดับสากล เพื่อให้คุณมั่นใจได้ว่าทุกโปรเจกต์จะสำเร็จออกมาอย่างสมบูรณ์แบบ ประหยัดเวลา และคุ้มค่าที่สุด</p>
+            <p>ครบ จบ มั่นใจ ในที่เดียว</p>
+        </div>
+    </section>
+
+    <section id="booking" class="section">
+        <div class="container">
+            <h2>จองคิว (Booking)</h2>
+            <form id="booking-form" class="booking">
+                <div class="step">
+                    <h3>ส่วนที่ 1: ปฏิทินเลือกวันและเวลา (Check Availability)</h3>
+                    <div class="row">
+                        <div style="flex:1;min-width:240px">
+                            <label for="booking-date">วันที่</label>
+                            <input id="booking-date" type="date" required>
+                        </div>
+                        <div style="flex:1;min-width:240px">
+                            <label>ช่วงเวลา</label>
+                            <div class="options">
+                                <label><input type="radio" name="duration" value="half" checked> ครึ่งวัน 4 ชม.</label>
+                                <label><input type="radio" name="duration" value="full"> เต็มวัน 8 ชม.</label>
+                            </div>
+                            <div id="price-estimate" class="price-note">ประมาณ 5,000–8,000 บาท (รวมไฟพื้นฐาน)</div>
+                        </div>
+                    </div>
+                    <div class="row" id="timeslot-row">
+                        <div style="flex:1;min-width:240px">
+                            <label>เลือกช่วง</label>
+                            <div class="options">
+                                <label><input type="radio" name="timeslot" value="morning" checked> เช้า 09:00–13:00</label>
+                                <label><input type="radio" name="timeslot" value="afternoon"> บ่าย 14:00–18:00</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>ส่วนที่ 2: เลือกแพ็กเกจและบริการเสริม (Select Services)</h3>
+                    <div class="options check">
+                        <label><input type="checkbox" name="service" value="space"> เช่าเฉพาะสถานที่: สตูดิโอเปล่าพร้อมฉากพื้นฐาน</label>
+                        <label><input type="checkbox" name="service" value="equipment"> เช่าอุปกรณ์เพิ่มเติม: ไฟต่อเนื่อง กล้อง พร็อพพิเศษ</label>
+                        <label><input type="checkbox" name="service" value="crew"> บริการทีมงานโปรดักชัน: ช่างภาพ ช่างไฟ ผู้กำกับ หรือช่างแต่งหน้า</label>
+                        <label><input type="checkbox" name="service" value="fullproduction"> บริการ Production เต็มรูปแบบ</label>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>ส่วนที่ 3: ข้อมูลติดต่อและยืนยัน (Contact & Confirm)</h3>
+                    <div class="row two">
+                        <div>
+                            <label for="name">ชื่อแบรนด์/ผู้จอง</label>
+                            <input id="name" type="text" required>
+                        </div>
+                        <div>
+                            <label for="phone">เบอร์โทรศัพท์</label>
+                            <input id="phone" type="tel" required>
+                        </div>
+                    </div>
+                    <div class="row two">
+                        <div>
+                            <label for="email">อีเมล</label>
+                            <input id="email" type="email" required>
+                        </div>
+                        <div>
+                            <label for="ref">Reference งาน (ลิงก์)</label>
+                            <input id="ref" type="url" placeholder="https://">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="flex:1">
+                            <label for="note">หมายเหตุ</label>
+                            <textarea id="note" rows="3" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-accent" type="submit">ส่งคำขอจองคิว / Request Quote</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand">Moonlens Studio</div>
+                    <div class="slogan">Your Vision, Our Production.</div>
+                    <div class="location">Location: ระบุพิกัดสตูดิโอ เพื่อให้ลูกค้าประเมินการเดินทาง</div>
+                </div>
+                <div class="links">
+                    <a href="mailto:moonlaneza@gmail.com">Email: moonlaneza@gmail.com</a>
+                    <a href="https://instagram.com/moonlane_studio" target="_blank" rel="noopener">Instagram: @moonlane_studio</a>
+                    <a href="https://line.me/R/ti/p/@354oasig" target="_blank" rel="noopener" aria-label="Line">Line: @354oasig</a>
+                    <a href="https://www.facebook.com/profile.php?id=61588316976555&mibextid=wwXIfr&rdid=h2XrssVWqFqhSN0j&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16aBbLP8eo%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener" aria-label="Facebook">Facebook: Moonlane Studio สตูดิโอถ่ายภาพ</a>
+                    <a href="#" aria-label="TikTok">TikTok: เพิ่มลิงก์ช่อง</a>
+                </div>
+            </div>
+            <div class="copyright">© Moonlens Studio</div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="close" aria-label="Close">×</button>
+        <button class="btn-nav prev" aria-label="Previous">‹</button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="btn-nav next" aria-label="Next">›</button>
+        <div class="caption" id="lightbox-cap"></div>
+    </div>
+
+    <script>
+        const durationInputs=document.querySelectorAll('input[name="duration"]');
+        const timeslotRow=document.getElementById('timeslot-row');
+        const priceEstimate=document.getElementById('price-estimate');
+        durationInputs.forEach(r=>r.addEventListener('change',e=>{
+            const isFull=e.target.value==='full';
+            timeslotRow.style.display=isFull?'none':'flex';
+            if(priceEstimate){priceEstimate.textContent=isFull?'ประมาณ 10,000–18,000 บาท (รวมไฟพื้นฐาน)':'ประมาณ 5,000–8,000 บาท (รวมไฟพื้นฐาน)';}
+        }));
+        if(priceEstimate){priceEstimate.textContent='ประมาณ 5,000–8,000 บาท (รวมไฟพื้นฐาน)';}
+        const form=document.getElementById('booking-form');
+        form.addEventListener('submit',e=>{
+            e.preventDefault();
+            const date=document.getElementById('booking-date').value;
+            const name=document.getElementById('name').value.trim();
+            const phone=document.getElementById('phone').value.trim();
+            const email=document.getElementById('email').value.trim();
+            if(!date||!name||!phone||!email){
+                alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน');
+                return;
+            }
+            alert('ส่งคำขอเรียบร้อย ทีมงานจะติดต่อกลับทางอีเมลหรือโทรศัพท์');
+            form.reset();
+            timeslotRow.style.display='flex';
+        });
+        const equipData={
+            Cameras:[
+                {name:'Sony a7IV',price:500,img:'assets/images/Filming equipment/Sony a7iv.png',stock:1,studio:true},
+                {name:'Panasonic S5II',price:500,img:'assets/images/Filming equipment/Panasonic s5ii.png',stock:1,studio:true},
+                {name:'Canon RP',price:400,img:'assets/images/Filming equipment/Canon RP.png',stock:1,studio:true},
+                {name:'Canon 90D',price:300,img:'assets/images/Filming equipment/Canon 90D.png',stock:1,studio:true}
+            ],
+            Lenses:[
+                {name:'Canon RF 24-70mm F2.8',price:400,img:'assets/images/Filming equipment/Canon RF 24-70mm F2.8.png',stock:1,studio:true},
+                {name:'Panasonic Lumix S 24-105mm f/4',price:350,img:'assets/images/Filming equipment/Panasonic Lumix S 24-105mm f_4.png',stock:1,studio:true},
+                {name:'Sony FE 35mm f1.8',price:300,img:'assets/images/Filming equipment/Sony FE 35mm f1.8.png',stock:1,studio:true},
+                {name:'Sony FE 50mm f1.8',price:300,img:'assets/images/Filming equipment/Sony FE 50mm f1.8.png',stock:1,studio:true},
+                {name:'Canon EF 50 f1.8 STM',price:250,img:'assets/images/Filming equipment/Canon EF 50 f1.8 STM.png',stock:1,studio:true}
+            ],
+            Lighting:[
+                {name:'Nanlite FC-500B',price:500,img:'assets/images/Filming equipment/nanlite fc-500b.png',stock:1,studio:true},
+                {name:'Bazuka Z350II',price:300,img:'assets/images/Filming equipment/Bazuka Z350II.png',stock:1,studio:true},
+                {name:'Ulanzi L024 RGB 40W',price:250,img:'assets/images/Filming equipment/ulanzi l024 rgb 40w.png',stock:2,studio:true},
+                {name:'Photoolex q100c',price:200,img:'assets/images/Filming equipment/Photoolex q100c.png',stock:2,studio:true},
+                {name:'Ulanzi C01',price:200,img:'assets/images/Filming equipment/ulanzi c01.png',stock:2,studio:true},
+                {name:'YONGNUO YN360 III',price:170,img:'assets/images/Filming equipment/YONGNUO YN360 III.png',stock:2,studio:true},
+                {name:'Photoolex 10W',price:150,img:'assets/images/Filming equipment/photoolex 10w.png',stock:4,studio:true},
+                {name:'Photoolex b320 s',price:150,img:'assets/images/Filming equipment/Photoolex b320 s.png',stock:2,studio:true}
+            ],
+            Softbox:[
+                {name:'Softbox Octa GODOX 80cm',price:120,img:'assets/images/Filming equipment/Softbox Octa GODOX 80cm.png',stock:2,studio:true},
+                {name:'Godox 30x120 cm',price:120,img:'assets/images/Filming equipment/Godox 30x120 cm.png',stock:2,studio:true},
+                {name:'Softbox GODOX 70cm',price:100,img:'assets/images/Filming equipment/Softbox GODOX 70cm.png',stock:2,studio:true},
+                {name:'Godox Softbox ML-CS30',price:100,img:'assets/images/Filming equipment/godox softbox ml cs30.png',stock:2,studio:true},
+                {name:'Ambitful PS45',price:80,img:'assets/images/Filming equipment/ambitful ps45.png',stock:1,studio:true}
+            ],
+            Stands:[
+                {name:'ขาตั้งกล้อง K&F CONCEPT',price:300,img:'assets/images/Filming equipment/ขาตั้ง K&F CONCEPT.png',stock:2,studio:true},
+                {name:'ขาตั้งกล้อง K&F',price:200,img:'assets/images/Filming equipment/ขาตั้ง K&F.png',stock:2,studio:true},
+                {name:'ขาตั้งไฟ',price:100,img:'assets/images/Filming equipment/ขาตั้งไฟ.png',stock:4,studio:true},
+                {name:'ขาตั้งไฟ C Stand',price:100,img:'assets/images/Filming equipment/ขาตั้งไฟ C Stand.png',stock:2,studio:true}
+            ]
+        };
+        const equipTabs=document.getElementById('equip-tabs');
+        const equipGrid=document.getElementById('equip-grid');
+        const modeInputs=document.querySelectorAll('input[name="equip-mode"]');
+        let currentCategory='Cameras';
+        function renderTabs(){
+            const cats=Object.keys(equipData);
+            equipTabs.innerHTML='';
+            cats.forEach(c=>{
+                const el=document.createElement('button');
+                el.className='tab'+(c===currentCategory?' active':'');
+                el.textContent=c;
+                el.onclick=()=>{currentCategory=c;renderTabs();renderGrid();};
+                equipTabs.appendChild(el);
+            });
+        }
+        function renderGrid(){
+            const mode=document.querySelector('input[name="equip-mode"]:checked').value;
+            const items=equipData[currentCategory].filter(x=>mode==='item'||x.studio);
+            equipGrid.innerHTML='';
+            items.forEach(x=>{
+                const card=document.createElement('div');
+                card.className='equip-card';
+                const img=document.createElement('img');
+                img.src=x.img;
+                img.alt=x.name;
+                const body=document.createElement('div');
+                body.className='equip-body';
+                const name=document.createElement('div');
+                name.className='equip-name';
+                name.textContent=x.name;
+                const meta=document.createElement('div');
+                meta.className='equip-meta';
+                meta.textContent='ราคา '+x.price+'.- / วัน';
+                const row=document.createElement('div');
+                row.className='equip-row';
+                const stock=document.createElement('div');
+                stock.className='stock '+(x.stock>0?'ok':'empty');
+                stock.textContent=x.stock>0?'พร้อมให้เช่า: '+x.stock+' ชิ้น':'หมด';
+                row.appendChild(meta);
+                row.appendChild(stock);
+                body.appendChild(name);
+                if(mode==='studio'){const b=document.createElement('span');b.className='badge';b.textContent='ใช้กับสตูดิโอ';body.appendChild(b);}
+                body.appendChild(row);
+                card.appendChild(img);
+                card.appendChild(body);
+                equipGrid.appendChild(card);
+            });
+        }
+        modeInputs.forEach(r=>r.addEventListener('change',()=>renderGrid()));
+        renderTabs();
+        renderGrid();
+        const lb=document.getElementById('lightbox');
+        const lbImg=document.getElementById('lightbox-img');
+        const lbCap=document.getElementById('lightbox-cap');
+        const prevBtn=lb.querySelector('.prev');
+        const nextBtn=lb.querySelector('.next');
+        const closeBtn=lb.querySelector('.close');
+        let lbList=[],lbIndex=0;
+        function lbShow(){const item=lbList[lbIndex];lbImg.src=item.src;lbImg.alt=item.alt||'';lbCap.textContent=item.alt||'';}
+        function lbOpen(list,idx){lbList=list;lbIndex=idx>=0?idx:0;lbShow();lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';}
+        function lbClose(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.documentElement.style.overflow='';}
+        function lbNext(){lbIndex=(lbIndex+1)%lbList.length;lbShow();}
+        function lbPrev(){lbIndex=(lbIndex-1+lbList.length)%lbList.length;lbShow();}
+        prevBtn.addEventListener('click',lbPrev);
+        nextBtn.addEventListener('click',lbNext);
+        closeBtn.addEventListener('click',lbClose);
+        lb.addEventListener('click',e=>{if(e.target===lb)lbClose();});
+        window.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbNext();if(e.key==='ArrowLeft')lbPrev();});
+        function initLightbox(){
+            const sels='.wa-row img, .equip-banners img, .gallery img, .equip-card img';
+            const imgs=document.querySelectorAll(sels);
+            imgs.forEach(img=>{
+                img.classList.add('clickable');
+                img.addEventListener('click',e=>{
+                    const container=e.target.closest('.wa-row, .equip-banners, .gallery, .equip-grid');
+                    const scope=container?container.querySelectorAll('img'):[e.target];
+                    const list=Array.from(scope).map(x=>({src:x.src,alt:x.alt||''}));
+                    const idx=Array.from(scope).indexOf(e.target);
+                    lbOpen(list,idx);
+                });
+            });
+        }
+        initLightbox();
+    </script>
+</body>
+</html>
