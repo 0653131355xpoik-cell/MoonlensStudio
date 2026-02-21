@@ -44,7 +44,7 @@
         .card{background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
         .card h3{margin:0;font-size:18px}
         .card p{margin:0;color:var(--muted)}
-        .pricing{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+        .pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
         .price-card{background:#ffffff;border:1px solid var(--border);border-radius:16px;padding:20px;display:grid;gap:6px}
         .price-card h3{margin:0;font-size:18px}
         .price-range{font-weight:700;font-size:18px}
@@ -103,7 +103,13 @@
         .links a{color:#e5e7eb}
         .links a:hover{color:var(--accent)}
         .copyright{margin-top:16px;border-top:1px solid #222;padding-top:16px;text-align:center;color:#9ca3af}
-        @media (max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}:root{--nav-h:72px}.brand .logo{height:44px}.nav-inner{height:var(--nav-h)}.nav-inner nav{position:fixed;top:var(--nav-h);left:0;right:0;background:#ffffff;flex-direction:column;align-items:flex-start;padding:12px 24px;border-bottom:1px solid var(--border);gap:4px;max-height:0;overflow:hidden;transition:max-height .2s ease}.nav-inner nav a{width:100%;padding:10px 0;font-size:16px}.nav-inner nav.open{max-height:280px}.nav-toggle{display:inline-flex}}
+        .line-floating{position:fixed;right:16px;bottom:16px;background:#00b900;color:#ffffff;padding:10px 16px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;font-weight:600;box-shadow:0 10px 25px rgba(0,0,0,.25);z-index:50}
+        .line-floating:hover{filter:brightness(1.05)}
+        .line-floating span{font-size:14px}
+        .info-box{margin-top:24px;padding:16px 20px;border-radius:16px;border:1px solid var(--border);background:#fefce8}
+        .info-box h3{margin:0 0 8px;font-size:18px}
+        .info-box p{margin:0 0 6px}
+        @media (max-width:960px){.cards{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}:root{--nav-h:72px}.brand .logo{height:44px}.nav-inner{height:var(--nav-h)}.nav-inner nav{position:fixed;top:var(--nav-h);left:0;right:0;background:#ffffff;flex-direction:column;align-items:flex-start;padding:12px 24px;border-bottom:1px solid var(--border);gap:6px;max-height:0;overflow:hidden;transition:max-height .2s ease}.nav-inner nav a{width:100%;padding:12px 0;font-size:16px}.nav-inner nav.open{max-height:calc(100vh - var(--nav-h));overflow-y:auto}.nav-toggle{display:inline-flex}}
         @media (max-width:600px){.cards{grid-template-columns:1fr}.features{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.equip-banners{grid-template-columns:1fr}.hero h1{font-size:32px}}
     </style>
 </head>
@@ -120,7 +126,7 @@
                 <a href="#why">ทำไมต้องเลือกเรา</a>
                 <a href="#portfolio">ผลงาน</a>
                 <a href="#about">About</a>
-                <a href="#booking">จองคิว</a>
+                <a href="https://line.me/R/ti/p/@354oasig" target="_blank" rel="noopener">จองคิวผ่าน LINE</a>
                 <a href="#contact">ติดต่อ</a>
             </nav>
         </div>
@@ -135,8 +141,8 @@
             <h1>Moonlens Studio – One-Stop Studio for Your Creative Vision</h1>
             <p>บริการครบวงจรทั้งสถานที่ ทีมงาน และอุปกรณ์คุณภาพสูง เพื่อผลงานโฆษณาและคอนเทนต์ระดับโปรดักชัน</p>
             <div class="cta">
-                <a class="btn btn-accent" href="#booking">จองสตูดิโอ</a>
-                <a class="btn btn-outline" href="mailto:moonlaneza@gmail.com?subject=สอบถามราคา Moonlens Studio">สอบถามราคา</a>
+                <a class="btn btn-accent" href="https://line.me/R/ti/p/@354oasig" target="_blank" rel="noopener">จองคิวผ่าน LINE</a>
+                <a class="btn btn-outline" href="#services">ดูราคาเริ่มต้น</a>
             </div>
         </div>
     </section>
@@ -162,17 +168,76 @@
                     <p>บริการอุปกรณ์ครบชุด พร้อมจัดหา Model/Influencer</p>
                 </div>
             </div>
-            <h2 style="margin-top:24px">ราคาเช่าสตูดิโอ (รวมไฟพื้นฐาน)</h2>
+            <h2 style="margin-top:24px">เรทราคา Moonlens Studio 2026 – ค่าเช่าสตูดิโอ</h2>
+            <div class="price-note">ราคารวมไฟและพื้นหลังพื้นฐาน</div>
             <div class="pricing">
                 <div class="price-card">
-                    <h3>ครึ่งคิว (4 ชั่วโมง)</h3>
-                    <div class="price-range">5,000–8,000 บาท</div>
-                    <div class="price-note">ค่าเช่าสตูดิโอเปล่า รวมไฟพื้นฐาน</div>
+                    <h3>Studio S (เล็ก)</h3>
+                    <div class="price-range">ครึ่งวัน (4 ชม.) 5,000.-</div>
+                    <div class="price-range">เต็มวัน (8 ชม.) 9,500.-</div>
+                    <div class="price-note">รายชั่วโมง 500.-</div>
                 </div>
                 <div class="price-card">
-                    <h3>เต็มคิว (9 ชั่วโมง)</h3>
-                    <div class="price-range">10,000–18,000 บาท</div>
-                    <div class="price-note">ค่าเช่าสตูดิโอเปล่า รวมไฟพื้นฐาน</div>
+                    <h3>Studio M (กลาง)</h3>
+                    <div class="price-range">ครึ่งวัน (4 ชม.) 6,500.-</div>
+                    <div class="price-range">เต็มวัน (8 ชม.) 12,500.-</div>
+                    <div class="price-note">รายชั่วโมง 500.-</div>
+                </div>
+                <div class="price-card">
+                    <h3>Studio L (ใหญ่)</h3>
+                    <div class="price-range">ครึ่งวัน (4 ชม.) 8,000.-</div>
+                    <div class="price-range">เต็มวัน (8 ชม.) 16,000–18,000.-</div>
+                    <div class="price-note">รายชั่วโมง 500.-</div>
+                </div>
+            </div>
+            <div class="cta" style="margin-top:16px;justify-content:flex-start">
+                <a class="btn btn-accent" href="https://line.me/R/ti/p/@354oasig" target="_blank" rel="noopener">เช็คคิวว่างผ่าน LINE</a>
+            </div>
+            <h2 style="margin-top:32px">บริการทีมงานและโปรดักชัน (Crew & Production)</h2>
+            <div class="pricing">
+                <div class="price-card">
+                    <h3>ทีมงานรายวัน (Crew Only)</h3>
+                    <div class="price-note">ทีมกล้อง / ทีมไฟ / ทีมพร็อพ (1–2 คน)</div>
+                    <div class="price-range">ครึ่งวัน 8,000.-</div>
+                    <div class="price-range">เต็มวัน 12,000–15,000.-</div>
+                    <div class="price-note">งานตัดต่อวิดีโอเริ่มต้น 500–3,000.-</div>
+                    <div class="price-note">เหมางานจัดหาพร็อพเริ่มต้น 5,000.-</div>
+                </div>
+                <div class="price-card">
+                    <h3>Full Production Packages</h3>
+                    <div class="price-note">ถ่ายภาพสินค้า: 5,000–15,000.-</div>
+                    <div class="price-note">ถ่ายภาพบุคคล: 3,000–12,000.-</div>
+                    <div class="price-note">Social Media Content: 18,000–69,000.-</div>
+                    <div class="price-note">Corporate / Profile Video: 20,000–150,000.-</div>
+                    <div class="price-note">Commercial / Cinema Ad: 150,000–400,000.-</div>
+                </div>
+            </div>
+            <h2 style="margin-top:32px">ขั้นตอนการใช้บริการ Moonlens Studio</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>การเช่าอุปกรณ์</h3>
+                    <ol>
+                        <li>ดูรายการอุปกรณ์และเรทราคาบนหน้าเว็บไซต์</li>
+                        <li>จดหรือแคปหน้าจออุปกรณ์ที่ต้องการเช่า</li>
+                        <li>ทัก LINE @MoonLens (มี @) เพื่อแจ้งรายการและวัน-เวลาที่ต้องการ</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <h3>การเช่าสตูดิโอ / บริการทีมงาน</h3>
+                    <ol>
+                        <li>ตรวจสอบเรทราคาเริ่มต้นบนหน้าเว็บไซต์</li>
+                        <li>แอดไลน์ @MoonLens (มี @) เพื่อเช็คคิวว่างและคุยรายละเอียดกับแอดมิน</li>
+                        <li>ยืนยันการจองและมัดจำผ่านช่องทาง LINE เท่านั้น</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>ประกาศสำคัญสำหรับการเช่าสตูดิโอ</h3>
+                <p>เพื่อการจัดคิวที่แม่นยำและการดูแลอย่างทั่วถึง สำหรับการเช่าสตูดิโอ บริการทีมงานโปรดักชัน และบริการเหมาจบทุกรูปแบบ</p>
+                <p>กรุณาติดต่อจองผ่าน LINE Official เท่านั้น</p>
+                <p class="price-note">(หน้าเว็บไซต์ใช้สำหรับดูข้อมูลและเรทราคาอุปกรณ์/สตูดิโอเบื้องต้น การจองทำผ่าน LINE เท่านั้น)</p>
+                <div class="cta" style="margin-top:8px;justify-content:flex-start">
+                    <a class="btn btn-accent" href="https://line.me/R/ti/p/@354oasig" target="_blank" rel="noopener">ทักแชทจองสตูดิโอเลย</a>
                 </div>
             </div>
         </div>
@@ -212,12 +277,12 @@
         <div class="container">
             <h2>อุปกรณ์ให้เช่า (Equipment Catalog)</h2>
             <div class="equip-banners">
-                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้สี_001.png" alt="บริการเช่าอุปกรณ์ - Tripods & Stands" loading="lazy">
-                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้สี_002.png" alt="บริการเช่าอุปกรณ์ - Lenses" loading="lazy">
-                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้สี_003.png" alt="บริการเช่าอุปกรณ์ - Cameras" loading="lazy">
-                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้สี_004.png" alt="บริการเช่าอุปกรณ์ - Softboxes" loading="lazy">
-                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้สี_005.png" alt="บริการเช่าอุปกรณ์ - Lighting" loading="lazy">
-                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้สี_006.png" alt="บริการเช่าอุปกรณ์ - รวมรายการ" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้ราคา_001.png" alt="บริการเช่าอุปกรณ์ - Tripods & Stands" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้ราคา_002.png" alt="บริการเช่าอุปกรณ์ - Lenses" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้ราคา_003.png" alt="บริการเช่าอุปกรณ์ - Cameras" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้ราคา_004.png" alt="บริการเช่าอุปกรณ์ - Softboxes" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้ราคา_005.png" alt="บริการเช่าอุปกรณ์ - Lighting" loading="lazy">
+                <img src="assets/images/Equipment rental/เช่าอุปกรณ์_สมมุติ_Moonlane Studio_แก้ราคา_006.png" alt="บริการเช่าอุปกรณ์ - รวมรายการ" loading="lazy">
             </div>
             <div class="equip-header">
                 <div class="equip-tabs" id="equip-tabs"></div>
@@ -253,13 +318,14 @@
     <section id="portfolio" class="section">
         <div class="container">
             <h2>แกลเลอรีผลงาน (Portfolio)</h2>
+            <p class="slogan">ตัวอย่างงานที่ถ่ายทำใน Moonlens Studio และใช้บริการอุปกรณ์ของเรา</p>
             <div class="gallery">
                 <img src="assets/images/Photography studio.jpg" alt="Photography Studio">
                 <img src="assets/images/_MG_0101workings.jpg" alt="Workings 0101">
                 <img src="assets/images/workings.png" alt="Studio Workings">
                 <img src="assets/images/งานกลุ่มสอบอ.ฟิล์ม FNworkings.png" alt="งานกลุ่มสอบ FN">
-                <img src="assets/images/Filming equipment/Sony a7iv.png" alt="Sony a7 IV">
-                <img src="assets/images/Filming equipment/Panasonic s5ii.png" alt="Panasonic S5 II">
+                <img src="assets/images/work atmosphere/493003cf-9db5-4384-8200-cc7b07f6ecd0.jpg" alt="Work Atmosphere Scene 1">
+                <img src="assets/images/work atmosphere/e87099c1-3eca-4fd9-a4a9-990abc46c748.jpg" alt="Work Atmosphere Scene 2">
             </div>
         </div>
     </section>
@@ -274,100 +340,30 @@
         </div>
     </section>
 
-    <section id="booking" class="section">
-        <div class="container">
-            <h2>จองคิว (Booking)</h2>
-            <form id="booking-form" class="booking">
-                <div class="step">
-                    <h3>ส่วนที่ 1: ปฏิทินเลือกวันและเวลา (Check Availability)</h3>
-                    <div class="row">
-                        <div style="flex:1;min-width:240px">
-                            <label for="booking-date">วันที่</label>
-                            <input id="booking-date" type="date" required>
-                        </div>
-                        <div style="flex:1;min-width:240px">
-                            <label>ช่วงเวลา</label>
-                            <div class="options">
-                                <label><input type="radio" name="duration" value="half" checked> ครึ่งวัน 4 ชม.</label>
-                                <label><input type="radio" name="duration" value="full"> เต็มวัน 8 ชม.</label>
-                            </div>
-                            <div id="price-estimate" class="price-note">ประมาณ 5,000–8,000 บาท (รวมไฟพื้นฐาน)</div>
-                        </div>
-                    </div>
-                    <div class="row" id="timeslot-row">
-                        <div style="flex:1;min-width:240px">
-                            <label>เลือกช่วง</label>
-                            <div class="options">
-                                <label><input type="radio" name="timeslot" value="morning" checked> เช้า 09:00–13:00</label>
-                                <label><input type="radio" name="timeslot" value="afternoon"> บ่าย 14:00–18:00</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <h3>ส่วนที่ 2: เลือกแพ็กเกจและบริการเสริม (Select Services)</h3>
-                    <div class="options check">
-                        <label><input type="checkbox" name="service" value="space"> เช่าเฉพาะสถานที่: สตูดิโอเปล่าพร้อมฉากพื้นฐาน</label>
-                        <label><input type="checkbox" name="service" value="equipment"> เช่าอุปกรณ์เพิ่มเติม: ไฟต่อเนื่อง กล้อง พร็อพพิเศษ</label>
-                        <label><input type="checkbox" name="service" value="crew"> บริการทีมงานโปรดักชัน: ช่างภาพ ช่างไฟ ผู้กำกับ หรือช่างแต่งหน้า</label>
-                        <label><input type="checkbox" name="service" value="fullproduction"> บริการ Production เต็มรูปแบบ</label>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <h3>ส่วนที่ 3: ข้อมูลติดต่อและยืนยัน (Contact & Confirm)</h3>
-                    <div class="row two">
-                        <div>
-                            <label for="name">ชื่อแบรนด์/ผู้จอง</label>
-                            <input id="name" type="text" required>
-                        </div>
-                        <div>
-                            <label for="phone">เบอร์โทรศัพท์</label>
-                            <input id="phone" type="tel" required>
-                        </div>
-                    </div>
-                    <div class="row two">
-                        <div>
-                            <label for="email">อีเมล</label>
-                            <input id="email" type="email" required>
-                        </div>
-                        <div>
-                            <label for="ref">Reference งาน (ลิงก์)</label>
-                            <input id="ref" type="url" placeholder="https://">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div style="flex:1">
-                            <label for="note">หมายเหตุ</label>
-                            <textarea id="note" rows="3" placeholder=""></textarea>
-                        </div>
-                    </div>
-                    <button class="btn btn-accent" type="submit">ส่งคำขอจองคิว / Request Quote</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <div class="brand">Moonlens Studio</div>
                     <div class="slogan">Your Vision, Our Production.</div>
-                    <div class="location">Location: ระบุพิกัดสตูดิโอ เพื่อให้ลูกค้าประเมินการเดินทาง</div>
+                    <div class="location"><a href="https://www.google.com/maps/dir/16.2442726,103.2548162/16.24651,103.25073/@16.2455148,103.2484632,16.75z/data=!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">📍 ขามเรียง อำเภอกันทรวิชัย มหาสารคาม</a> | 085-5911427</div>
+                    <div class="location">สำหรับการเช่าสตูดิโอและบริการอื่นๆ กรุณาติดต่อผ่าน LINE เป็นช่องทางหลัก</div>
                 </div>
                 <div class="links">
                     <a href="mailto:moonlaneza@gmail.com">Email: moonlaneza@gmail.com</a>
                     <a href="https://instagram.com/moonlane_studio" target="_blank" rel="noopener">Instagram: @moonlane_studio</a>
                     <a href="https://line.me/R/ti/p/@354oasig" target="_blank" rel="noopener" aria-label="Line">Line: @354oasig</a>
                     <a href="https://www.facebook.com/profile.php?id=61588316976555&mibextid=wwXIfr&rdid=h2XrssVWqFqhSN0j&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16aBbLP8eo%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener" aria-label="Facebook">Facebook: Moonlane Studio สตูดิโอถ่ายภาพ</a>
-                    <a href="#" aria-label="TikTok">TikTok: เพิ่มลิงก์ช่อง</a>
+                    <a href="https://www.tiktok.com/@moon.lane3?_r=1&_t=ZS-945RB8nEB4H&fbclid=IwY2xjawQGN0NleHRuA2FlbQIxMABicmlkETJxbW9EOWFaYVZTSnhYeThZc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpSngbXpTZlZG0YfFoxJVHP1Sc70fNN11QJLhfh-e7YOr30Y9ZncmfNRAwuv_aem_rDI2K4IUiOMRQ5IFk7l86w" target="_blank" rel="noopener" aria-label="TikTok">TikTok: @moon.lane3</a>
                 </div>
             </div>
             <div class="copyright">© Moonlens Studio</div>
         </div>
     </footer>
+
+    <a href="https://line.me/R/ti/p/@354oasig" class="line-floating" target="_blank" rel="noopener" aria-label="Chat on LINE">
+        <span>LINE</span>
+    </a>
 
     <div id="lightbox" class="lightbox" aria-hidden="true">
         <button class="close" aria-label="Close">×</button>
@@ -384,66 +380,42 @@
             navToggle.addEventListener('click',()=>{navMain.classList.toggle('open');});
             navMain.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navMain.classList.remove('open');}));
         }
-        const durationInputs=document.querySelectorAll('input[name="duration"]');
-        const timeslotRow=document.getElementById('timeslot-row');
-        const priceEstimate=document.getElementById('price-estimate');
-        durationInputs.forEach(r=>r.addEventListener('change',e=>{
-            const isFull=e.target.value==='full';
-            timeslotRow.style.display=isFull?'none':'flex';
-            if(priceEstimate){priceEstimate.textContent=isFull?'ประมาณ 10,000–18,000 บาท (รวมไฟพื้นฐาน)':'ประมาณ 5,000–8,000 บาท (รวมไฟพื้นฐาน)';}
-        }));
-        if(priceEstimate){priceEstimate.textContent='ประมาณ 5,000–8,000 บาท (รวมไฟพื้นฐาน)';}
-        const form=document.getElementById('booking-form');
-        form.addEventListener('submit',e=>{
-            e.preventDefault();
-            const date=document.getElementById('booking-date').value;
-            const name=document.getElementById('name').value.trim();
-            const phone=document.getElementById('phone').value.trim();
-            const email=document.getElementById('email').value.trim();
-            if(!date||!name||!phone||!email){
-                alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน');
-                return;
-            }
-            alert('ส่งคำขอเรียบร้อย ทีมงานจะติดต่อกลับทางอีเมลหรือโทรศัพท์');
-            form.reset();
-            timeslotRow.style.display='flex';
-        });
         const equipData={
             Cameras:[
-                {name:'Sony a7IV',price:500,img:'assets/images/Filming equipment/Sony a7iv.png',stock:1,studio:true},
-                {name:'Panasonic S5II',price:500,img:'assets/images/Filming equipment/Panasonic s5ii.png',stock:1,studio:true},
-                {name:'Canon RP',price:400,img:'assets/images/Filming equipment/Canon RP.png',stock:1,studio:true},
-                {name:'Canon 90D',price:300,img:'assets/images/Filming equipment/Canon 90D.png',stock:1,studio:true}
+                {name:'Sony a7IV',price:1500,img:'assets/images/Filming equipment/Sony a7iv.png',stock:1,studio:true},
+                {name:'Panasonic S5II',price:1200,img:'assets/images/Filming equipment/Panasonic s5ii.png',stock:1,studio:true},
+                {name:'Canon RP',price:900,img:'assets/images/Filming equipment/Canon RP.png',stock:1,studio:true},
+                {name:'Canon 90D',price:600,img:'assets/images/Filming equipment/Canon 90D.png',stock:1,studio:true}
             ],
             Lenses:[
-                {name:'Canon RF 24-70mm F2.8',price:400,img:'assets/images/Filming equipment/Canon RF 24-70mm F2.8.png',stock:1,studio:true},
-                {name:'Panasonic Lumix S 24-105mm f/4',price:350,img:'assets/images/Filming equipment/Panasonic Lumix S 24-105mm f_4.png',stock:1,studio:true},
-                {name:'Sony FE 35mm f1.8',price:300,img:'assets/images/Filming equipment/Sony FE 35mm f1.8.png',stock:1,studio:true},
-                {name:'Sony FE 50mm f1.8',price:300,img:'assets/images/Filming equipment/Sony FE 50mm f1.8.png',stock:1,studio:true},
-                {name:'Canon EF 50 f1.8 STM',price:250,img:'assets/images/Filming equipment/Canon EF 50 f1.8 STM.png',stock:1,studio:true}
+                {name:'Canon RF 24-70mm F2.8',price:1200,img:'assets/images/Filming equipment/Canon RF 24-70mm F2.8.png',stock:1,studio:true},
+                {name:'Panasonic Lumix S 24-105mm f/4',price:850,img:'assets/images/Filming equipment/Panasonic Lumix S 24-105mm f_4.png',stock:1,studio:true},
+                {name:'Sony FE 35mm f1.8',price:600,img:'assets/images/Filming equipment/Sony FE 35mm f1.8.png',stock:1,studio:true},
+                {name:'Sony FE 50mm f1.8',price:600,img:'assets/images/Filming equipment/Sony FE 50mm f1.8.png',stock:1,studio:true},
+                {name:'Canon EF 50 f1.8 STM',price:400,img:'assets/images/Filming equipment/Canon EF 50 f1.8 STM.png',stock:1,studio:true}
             ],
             Lighting:[
-                {name:'Nanlite FC-500B',price:500,img:'assets/images/Filming equipment/nanlite fc-500b.png',stock:1,studio:true},
-                {name:'Bazuka Z350II',price:300,img:'assets/images/Filming equipment/Bazuka Z350II.png',stock:1,studio:true},
-                {name:'Ulanzi L024 RGB 40W',price:250,img:'assets/images/Filming equipment/ulanzi l024 rgb 40w.png',stock:2,studio:true},
-                {name:'Photoolex q100c',price:200,img:'assets/images/Filming equipment/Photoolex q100c.png',stock:2,studio:true},
-                {name:'Ulanzi C01',price:200,img:'assets/images/Filming equipment/ulanzi c01.png',stock:2,studio:true},
-                {name:'YONGNUO YN360 III',price:170,img:'assets/images/Filming equipment/YONGNUO YN360 III.png',stock:2,studio:true},
-                {name:'Photoolex 10W',price:150,img:'assets/images/Filming equipment/photoolex 10w.png',stock:4,studio:true},
-                {name:'Photoolex b320 s',price:150,img:'assets/images/Filming equipment/Photoolex b320 s.png',stock:2,studio:true}
+                {name:'Nanlite FC-500B',price:1500,img:'assets/images/Filming equipment/nanlite fc-500b.png',stock:1,studio:true},
+                {name:'Bazuka Z350II',price:800,img:'assets/images/Filming equipment/Bazuka Z350II.png',stock:1,studio:true},
+                {name:'Ulanzi L024 RGB 40W',price:450,img:'assets/images/Filming equipment/ulanzi l024 rgb 40w.png',stock:2,studio:true},
+                {name:'Photoolex q100c',price:600,img:'assets/images/Filming equipment/Photoolex q100c.png',stock:2,studio:true},
+                {name:'Ulanzi C01',price:500,img:'assets/images/Filming equipment/ulanzi c01.png',stock:2,studio:true},
+                {name:'YONGNUO YN360 III',price:350,img:'assets/images/Filming equipment/YONGNUO YN360 III.png',stock:2,studio:true},
+                {name:'Photoolex 10W',price:350,img:'assets/images/Filming equipment/photoolex 10w.png',stock:4,studio:true},
+                {name:'Photoolex b320 s',price:350,img:'assets/images/Filming equipment/Photoolex b320 s.png',stock:2,studio:true}
             ],
             Softbox:[
-                {name:'Softbox Octa GODOX 80cm',price:120,img:'assets/images/Filming equipment/Softbox Octa GODOX 80cm.png',stock:2,studio:true},
-                {name:'Godox 30x120 cm',price:120,img:'assets/images/Filming equipment/Godox 30x120 cm.png',stock:2,studio:true},
-                {name:'Softbox GODOX 70cm',price:100,img:'assets/images/Filming equipment/Softbox GODOX 70cm.png',stock:2,studio:true},
-                {name:'Godox Softbox ML-CS30',price:100,img:'assets/images/Filming equipment/godox softbox ml cs30.png',stock:2,studio:true},
-                {name:'Ambitful PS45',price:80,img:'assets/images/Filming equipment/ambitful ps45.png',stock:1,studio:true}
+                {name:'Softbox Octa GODOX 80cm',price:300,img:'assets/images/Filming equipment/Softbox Octa GODOX 80cm.png',stock:2,studio:true},
+                {name:'Godox 30x120 cm',price:300,img:'assets/images/Filming equipment/Godox 30x120 cm.png',stock:2,studio:true},
+                {name:'Softbox GODOX 70cm',price:300,img:'assets/images/Filming equipment/Softbox GODOX 70cm.png',stock:2,studio:true},
+                {name:'Godox Softbox ML-CS30',price:250,img:'assets/images/Filming equipment/godox softbox ml cs30.png',stock:2,studio:true},
+                {name:'Ambitful PS45',price:250,img:'assets/images/Filming equipment/ambitful ps45.png',stock:1,studio:true}
             ],
             Stands:[
-                {name:'ขาตั้งกล้อง K&F CONCEPT',price:300,img:'assets/images/Filming equipment/ขาตั้ง K&F CONCEPT.png',stock:2,studio:true},
-                {name:'ขาตั้งกล้อง K&F',price:200,img:'assets/images/Filming equipment/ขาตั้ง K&F.png',stock:2,studio:true},
-                {name:'ขาตั้งไฟ',price:100,img:'assets/images/Filming equipment/ขาตั้งไฟ.png',stock:4,studio:true},
-                {name:'ขาตั้งไฟ C Stand',price:100,img:'assets/images/Filming equipment/ขาตั้งไฟ C Stand.png',stock:2,studio:true}
+                {name:'ขาตั้งกล้อง K&F CONCEPT',price:500,img:'assets/images/Filming equipment/ขาตั้ง K&F CONCEPT.png',stock:2,studio:true},
+                {name:'ขาตั้งกล้อง K&F',price:350,img:'assets/images/Filming equipment/ขาตั้ง K&F.png',stock:2,studio:true},
+                {name:'ขาตั้งไฟ',price:250,img:'assets/images/Filming equipment/ขาตั้งไฟ.png',stock:4,studio:true},
+                {name:'ขาตั้งไฟ C Stand',price:350,img:'assets/images/Filming equipment/ขาตั้งไฟ C Stand.png',stock:2,studio:true}
             ]
         };
         const equipTabs=document.getElementById('equip-tabs');
